@@ -13,6 +13,7 @@ export class AppComponent {
   excluir_ok = false;
   editar_ok = false;
   salvar_ok = false;
+  selecionado=null;
   disciplinas = [
     new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de ' +
       'Língua Portuguesa é garantir a todos os alunos o acesso aos saberes ' +
@@ -113,5 +114,12 @@ export class AppComponent {
     this.excluir_ok = false;
     this.salvar_ok = false;
     this.editar_ok = false;
+  }
+    selecionar(disciplina) {
+    this.selecionado = disciplina;
+  }
+
+  removerSelecionada() {
+    this.selecionado = null;
   }
 }
