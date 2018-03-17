@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Disciplina} from './disciplina.model';
-
+import {Professor} from './professor.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +15,7 @@ export class AppComponent {
   salvar_ok = false;
   selecionado=null;
   disciplinas = [
-    new Disciplina('Língua Portuguesa', 'O objetivo norteador da BNCC de ' +
+    new Disciplina(1,'Língua Portuguesa', 'O objetivo norteador da BNCC de ' +
       'Língua Portuguesa é garantir a todos os alunos o acesso aos saberes ' +
       'linguísticos necessários para a participação social e o exercício da ' +
       'cidadania, pois é por meio da língua que o ser ' +
