@@ -1,28 +1,90 @@
 
-<div class="container">
-    <h1>Disciplinas</h1>
-    <div class="text-right">
-        <button class="btn btn-sm btn-primary" (click)="criarCadastro()">Novo</button>
+<ul>
+  <li *ngFor="let teste of testes">
+  {{teste.id}} 
+  </li>
+</ul>
 
+<div class="container">
+<table class="table table-hover table-bordered">
+         <thead class="thead-light">
+            <tr>
+              <th>Cadastro Turma</th>
+            </tr>
+         </thead>
+
+      
+      <label for="disciplina">Disciplina:</label>
+          <select id="disciplina" name="disciplina" [(ngModel)]="disciplinaOb" >
+              <option *ngFor="let disciplina of disciplinas" [ngValue]= "disciplina">
+              {{disciplina.nome}}
+              </option>
+          </select>
+          <hr>
+        <label>Ano:</label>
+         <input type="text" id="codigo" name="codigo" [(ngModel)]="ano" required>
+       <hr>
+       <label for="professor">Professores:</label>
+         <select id="professorSelect" name="Professor"  [(ngModel)]="professorOb">
+            <option *ngFor="let professor of professores" [ngValue]= "professor">
+            {{professor.nome}}
+            </option>
+          </select>
+         <hr>
+      <label for="aluno">Alunos:</label>
+        <select id="alunoSelect" name="aluno" [(ngModel)]="alunoOb">
+          <option *ngFor="let aluno of alunos" [ngValue]= "aluno">
+          {{aluno.nome}}
+          </option>
+        </select>
+        <br>
+        <button type="submit"  (click)="salvarListaAluno()">
+        Adicionar
+      </button>
+       
+    </table>
+
+    <div class="text-right">
+          <button type="submit" class="btn btn-primary" (click)="salvar()">
+          <i class="fa fa-save"></i> Salvar
+      </button>
     </div>
-    <hr>
+ 
+
     <div *ngIf="excluir_ok" class="alert alert-success">
         <strong>Sucesso!</strong> A disciplina foi excluída com sucesso.
     </div>
+    <hr>
+    <h1>Turmas</h1>
+    <hr>
     <table class="table table-hover table-bordered">
+     
         <thead class="thead-light">
         <tr>
-            <th>Disciplina</th>
-            <th width="200">Ações</th>
+        <th>ID</th>
+        <th>Disciplina</th>
+        <th>Professor</th>
+        <th>Qtd. Alunos</th>
+         <th>Ações</th>
         </tr>
         </thead>
+
         <tbody>
-        <tr *ngFor="let disciplina of disciplinas"
-            [class.table-active]="editando == disciplina">
+        <tr *ngFor="let turma of turmas"
+            [class.table-active]="editando == turma">
             <td>
-                <i *ngIf="editando == disciplina"
+                <i *ngIf="editando == turma"
                    class="fa fa-pencil-square"></i>
-                {{disciplina.nome}}
+                {{turma.idTurma}}
+            </td>
+            <td>
+              {{turma.disciplinaID.nome}}
+            </td>
+            <td>
+              {{turma.idProfessorT.nome}}
+            </td>
+            <td>
+              
             </td>
             <td>
                 <button class="btn btn-sm btn-danger"
@@ -37,6 +99,11 @@
         </tr>
         </tbody>
     </table>
+
+    
+
+      
+
     <!-- cadastrar sem sumir
 
     <h2>Cadastrar</h2>
@@ -130,7 +197,7 @@
 </div>
  testes aqui-->
 
- <!-- Cadastro Botão "novo"-->
+ <!-- Cadastro Botão "novo"
         <div class="container">
             <div *ngIf="novoCadastro!=false || editando!=null">
                 <div class="card">
@@ -185,6 +252,6 @@
             </div>
         </div>
 
-        <!-- testes aqui-->
+         testes aqui-->
 
 

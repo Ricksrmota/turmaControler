@@ -2,6 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TurmaService} from './turma.service';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import {AppComponent} from './app.component';
 
@@ -12,9 +15,10 @@ import {AppComponent} from './app.component';
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TurmaService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

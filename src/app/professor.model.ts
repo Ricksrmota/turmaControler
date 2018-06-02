@@ -1,8 +1,12 @@
 export class Professor{
- nome: string;
 
- constructor(nome: string)
- {
-    this.nome = nome;
+  idProfessor: number;
+  nome: string;
+
+
+   constructor(idProfessor: number, nome: string)
+   {
+      this.nome = nome;
+      this.idProfessor = idProfessor;
+   }
  }
-}
